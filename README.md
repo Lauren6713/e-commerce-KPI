@@ -1,1 +1,1 @@
-# e-commerce-KPI
+# E-commerce-KPI
