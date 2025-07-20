@@ -1,60 +1,201 @@
-# Ecommerce Analysis - Olist Dataset
+# 🛒 Analyse E-commerce – Données Olist (Kaggle)
 
-Welcome to this analysis of the **Brazilian Ecommerce Olist Dataset**! This dataset contains over **100,000 orders** made between **2016 and 2018** at multiple marketplaces in Brazil, providing valuable insights into various aspects of online shopping behavior.
+**Projet Python | Exploration, Visualisation & Analyse Statistique**
 
-The dataset features various details about each order, including:
+## 📌 Description du projet
 
-- **Order status**: Processed, delivered, canceled, etc.
-- **Price**: The value of each product purchased.
-- **Freight**: Shipping and delivery-related data.
-- **Product attributes**: Product category, name length, description, and more.
-- **Reviews**: Ratings and feedback provided by customers.
-- **Customer information**: Customer location, shipping address, etc.
+Ce projet explore les données du e-commerce brésilien issues de la plateforme **Olist** (source Kaggle). L’analyse couvre plus de **100 000 commandes** passées entre 2016 et 2018. Grâce à Python, le projet met en lumière des **indicateurs clés** de performance et des **insights exploitables** à travers la visualisation et la statistique.
 
-## Project Goals
+---
 
-The primary objective of this analysis is to uncover key performance indicators (KPIs) and provide actionable insights on various aspects of the ecommerce platform. Specifically, I focused on the following:
+## 🎯 Problématiques
 
-1. **Top Sold Products**: Identifying the most popular products in terms of order volume.
-2. **Worst Performing Products**: Analyzing products with the lowest review scores and categorizing them based on their performance.
-3. **Delivery Time vs Review Score**: Examining the correlation between delivery time and customer satisfaction (review scores). Analyzing if faster deliveries correlate with higher satisfaction.
+* Quels sont les produits les plus populaires ?
+* Quelles catégories de produits reçoivent les plus mauvaises évaluations ?
+* Le temps de livraison influence-t-il la satisfaction client ?
 
-## Analysis and Key Insights
+---
 
-### 1. **Top Sold Products**:
-   By aggregating the order data, we identified the most sold products across different categories. This information is important for understanding product demand, stock management, and sales strategies.
+## 🧠 Approche analytique
 
-### 2. **Worst Products by Review Score**:
-   We also categorized products based on their review scores to identify those that received the lowest ratings. These products could benefit from attention to improve customer satisfaction, whether by improving product quality, better descriptions, or addressing specific customer complaints.
+* Fusion et nettoyage des jeux de données (`pandas`)
+* Conversion des dates et traitement des valeurs manquantes
+* Création de métriques : score moyen, délais de livraison, catégories de satisfaction
+* Visualisations avec `matplotlib` et `seaborn`
+* Analyse statistique : test T sur les scores de review en fonction du temps de livraison
 
-### 3. **Delivery Time vs Review Score**:
-   One of the primary KPIs we explored was the relationship between **delivery time** and **customer satisfaction** (review score). We computed the delivery time for each order and divided the data into **fast deliveries** (those delivered before the median delivery time) and **slow deliveries** (those delivered after the median). A statistical test (T-test) was used to determine if there was a significant difference in satisfaction between these two groups.
+---
 
-   The analysis revealed that faster delivery times generally correlated with **better review scores**, highlighting the importance of delivery efficiency in improving customer satisfaction.
+## 🔍 Données & outils
 
-## Dataset Details
+**Source** : [Kaggle – Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-The dataset includes the following files:
-- `olist_orders_dataset.csv`: Contains order-level data, including order ID, purchase timestamps, delivery dates, etc.
-- `olist_customers_dataset.csv`: Customer-related data such as customer ID and location.
-- `olist_order_items_dataset.csv`: Detailed information on products included in each order.
-- `olist_order_reviews_dataset.csv`: Customer reviews for the products purchased.
-- `olist_products_dataset.csv`: Product attributes, including category, description, and dimensions.
-- `olist_sellers_dataset.csv`: Seller information related to each product.
-- `olist_order_payments_dataset.csv`: Payment-related information for each order.
-- `olist_geolocation_dataset.csv`: Geolocation data linking Brazilian zip codes to latitudes and longitudes.
+**Fichiers utilisés** :
 
-## Requirements
+* `olist_orders_dataset.csv`
+* `olist_customers_dataset.csv`
+* `olist_order_items_dataset.csv`
+* `olist_order_payments_dataset.csv`
+* `olist_order_reviews_dataset.csv`
+* `olist_products_dataset.csv`
+* `olist_sellers_dataset.csv`
 
-To run this analysis on your own machine, you'll need the following Python libraries:
+**Outils** :
 
-- `pandas` - for data manipulation
-- `matplotlib` - for data visualization
-- `seaborn` - for additional visualizations
-- `scipy` - for statistical tests (e.g., T-test)
+* Python, Jupyter / Google Colab
+* `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`
 
- Open the `notebook` or run the Python scripts to explore the data and the analyses.
+---
 
-## Conclusion
+## 📐 Étapes clés
 
-This analysis provides information about the Brazilian ecommerce landscape, offering insights into top-selling products, product performance by customer reviews, and the impact of delivery times on customer satisfaction. The findings can be leveraged by sellers, logistics teams, and marketers to optimize operations and improve customer experiences.
+### 1. Préparation des données
+
+* Conversion des champs de date
+* Remplacement des valeurs manquantes 
+* Fusion de tous les jeux de données en un DataFrame complet
+
+### 2. Création de variables
+
+* Score review → catégorie : *Excellent / Good / Average / Poor*
+* Temps de livraison = date de réception – date d’achat
+
+---
+
+## 📊 Résultats
+
+### 🔝 Produits les plus vendus
+
+* Les catégories *bed\_bath\_table*, *health\_beauty* sont en tête.
+
+### ⚠️ Produits les moins bien notés
+
+* Catégories avec score moyen < 3 : *fashion\_underwear\_beach*, *auto*.
+
+### ⏱ Livraison vs Satisfaction
+
+* Les livraisons rapides obtiennent des notes plus élevées.
+  Test T → résultat **statistiquement significatif**.
+
+---
+
+## 📉 Visualisations
+
+* Histogramme des catégories de review
+* Top 10 des catégories par ventes
+* Bar chart des pires catégories (score moyen)
+* Comparaison Fast vs Slow delivery (review score moyen)
+
+---
+
+## ⚠️ Limites
+
+* Données limitées au Brésil et à 2016–2018
+* Données produit peu granulaires
+* Reviews parfois incomplètes (commentaires manquants)
+
+## 📬 Contact
+
+📧 [lauren.garcia0204@gmail.com](mailto:lauren.garcia0204@gmail.com)
+
+> *Utilisons les données pour améliorer l'expérience e-commerce.*
+
+---
+
+## 📌 Project Overview
+
+This project explores the **Brazilian e-commerce dataset** from **Olist** (via Kaggle), analyzing over **100,000 orders** from 2016 to 2018. The goal is to extract **key performance indicators** and provide **actionable insights** using Python, data visualization, and statistics.
+
+---
+
+## 🎯 Key Questions
+
+* What are the most sold product categories?
+* Which products have the worst customer reviews?
+* Does delivery speed impact customer satisfaction?
+
+---
+
+## 🧠 Analytical Approach
+
+* Merge and clean all datasets using `pandas`
+* Convert date fields and handle missing values
+* Create calculated features: delivery time, review category
+* Visualize with `matplotlib` and `seaborn`
+* Perform T-test to evaluate the impact of delivery time on review scores
+
+---
+
+## 🔍 Data & Tools
+
+**Source**: [Kaggle – Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
+
+**Files used**:
+
+* `olist_orders_dataset.csv`
+* `olist_customers_dataset.csv`
+* `olist_order_items_dataset.csv`
+* `olist_order_payments_dataset.csv`
+* `olist_order_reviews_dataset.csv`
+* `olist_products_dataset.csv`
+* `olist_sellers_dataset.csv`
+
+**Tools**:
+
+* Python, Jupyter / Google Colab
+* `pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`
+
+---
+
+## 📐 Key Steps
+
+### 1. Data Preparation
+
+* Convert timestamp fields
+* Replace missing values (`unknown`, averages)
+* Merge all tables into a unified DataFrame
+
+### 2. Feature Engineering
+
+* Review score → Review category: *Excellent / Good / Average / Poor*
+* Delivery time = delivered\_date – purchase\_date
+
+---
+
+## 📊 Key Findings
+
+### 🔝 Top Selling Products
+
+* Categories like *bed\_bath\_table* and *health\_beauty* rank highest.
+
+### ⚠️ Worst Reviewed Products
+
+* Categories with average score < 3: *fashion\_underwear\_beach*, *auto*
+
+### ⏱ Delivery vs Satisfaction
+
+* Faster deliveries lead to better review scores.
+  T-test result: **statistically significant**
+
+---
+
+## 📉 Visualizations
+
+* Histogram of review categories
+* Top 10 product categories by sales
+* Bar chart of worst-reviewed categories
+* Avg. score comparison: fast vs slow delivery
+
+---
+
+## ⚠️ Limitations
+
+* Dataset limited to Brazil and 2016–2018 period
+* Product-level data lacks subcategories
+* Incomplete review texts for some entries
+
+## 📬 Contact
+
+📧 [lauren.garcia0204@gmail.com](mailto:lauren.garcia0204@gmail.com)
+
+> *Let’s use data to improve the e-commerce experience.*
