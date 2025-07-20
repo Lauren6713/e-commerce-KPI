@@ -19,7 +19,7 @@ Ce projet présente une **analyse approfondie du jeu de données public Olist E-
 ## 🧠 Approche Analytique
 
 * **Manipulation et Préparation des Données :** Fusion et nettoyage des jeux de données (`pandas`), conversion des champs de date/heure, et traitement des valeurs manquantes.
-* **Ingénierie de Caractéristiques :** Création de métriques comme la catégorie de satisfaction des avis et les délais de livraison.
+* **Caractéristiques :** Création de métriques comme la catégorie de satisfaction des avis et les délais de livraison.
 * **Visualisation de Données :** Création de graphiques informatifs avec `matplotlib` et `seaborn`.
 * **Analyse Statistique :** Application du test T (`scipy.stats.ttest_ind`) pour évaluer l'impact du temps de livraison sur les scores d'avis.
 
